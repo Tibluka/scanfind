@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { NgxBootstrapIconsModule, allIcons } from 'ngx-bootstrap-icons';
 import { MenuComponent } from './components/menu/menu.component';
 import { ClickOutsideModule } from 'ng-click-outside';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -23,7 +22,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     AppRoutingModule,
     NgbModule,
-    NgxBootstrapIconsModule.pick(allIcons),
     ClickOutsideModule
   ],
   providers: [],
