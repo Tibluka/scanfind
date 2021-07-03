@@ -19,11 +19,20 @@ app-footer {
 app-menu {
     transition: 500ms;
     position: absolute;
-    z-index: 2;
+    z-index: 3;
     height: 100vh;
     background: white;
     width: 65%;
     border-bottom-right-radius: 30px;
     border-top-right-radius: 30px;
     border: 1px solid rgba(201, 198, 198, 0.411);
+}
+
+.blur{
+    background: rgba(51, 51, 51, 0.521);
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
 }

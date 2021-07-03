@@ -16,8 +16,10 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  openMenu(){
-    this.activate.emit(true)
+  openMenu() {
+    setTimeout(() => {
+      this.activate.emit(true)
+    }, 1);
   }
 
 }

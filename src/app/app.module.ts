@@ -7,9 +7,9 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxBootstrapIconsModule, allIcons } from 'ngx-bootstrap-icons';
-import { MenuModule } from './components/menu/menu.module';
 import { MenuComponent } from './components/menu/menu.component';
-
+import { ClickOutsideModule } from 'ng-click-outside';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -20,9 +20,11 @@ import { MenuComponent } from './components/menu/menu.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     NgbModule,
-    NgxBootstrapIconsModule.pick(allIcons)
+    NgxBootstrapIconsModule.pick(allIcons),
+    ClickOutsideModule
   ],
   providers: [],
   bootstrap: [AppComponent]

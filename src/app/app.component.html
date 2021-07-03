@@ -1,6 +1,8 @@
 <app-header (activate)="openMenu($event)"></app-header>
-<app-menu [style.left]="menuIsActive ? '0' : '-600px'" [active]="menuIsActive" ></app-menu>
+<app-menu [style.left]="menuIsActive ? '0' : '-600px'" [active]="menuIsActive" (closeMenu)="closeMenu($event)">
+</app-menu>
 <div class="container">
   <router-outlet></router-outlet>
 </div>
 <app-footer></app-footer>
+<div class="blur" [@inOutAnimation] *ngIf="menuIsActive"></div>

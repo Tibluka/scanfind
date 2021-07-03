@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-menu',
@@ -8,10 +8,16 @@ import { Component, Input, OnInit } from '@angular/core';
 export class MenuComponent implements OnInit {
 
   @Input('active') active: boolean | undefined
-
+  @Output() closeMenu = new EventEmitter();
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onClickedOutside(e: Event) {
+    if (this.active) {
+      this.closeMenu.emit(true)
+    }
   }
 
 }
