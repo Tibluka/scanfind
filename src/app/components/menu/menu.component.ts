@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -8,8 +9,9 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class MenuComponent implements OnInit {
 
   @Input('active') active: boolean | undefined
-  @Output() closeMenu = new EventEmitter();
-  constructor() { }
+  @Output() closeMenu = new EventEmitter()
+
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -18,6 +20,11 @@ export class MenuComponent implements OnInit {
     if (this.active) {
       this.closeMenu.emit(true)
     }
+  }
+
+  navigate(route: string){
+    this.closeMenu.emit(true)
+    this.router.navigate([`/${route}`])
   }
 
 }

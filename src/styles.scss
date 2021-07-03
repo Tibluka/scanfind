@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 :root{
     --primary-color: #41908a;
+    --caption-color: rgb(175, 173, 173);
 }
 
 /* Importing Bootstrap SCSS file. */
@@ -10,4 +11,12 @@
 .title{
     font-weight: 500;
     font-size: 20px;   
+}
+.caption{
+    color: var(--caption-color);
+    font-weight: 400;
+    font-size: 18px;
+}
+.pt-100{
+    padding-top: 100px;
 }

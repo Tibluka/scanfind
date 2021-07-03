@@ -8,7 +8,7 @@ import { RouterModule } from '@angular/router'
   declarations: [SearchComponent],
   imports: [
     CommonModule,
-    RouterModule.forRoot([
+    RouterModule.forChild([
       {
         path: '',
         component: SearchComponent

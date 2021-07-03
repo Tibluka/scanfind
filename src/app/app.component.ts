@@ -7,27 +7,10 @@ import { MenuService } from './services/menu.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   animations: [
-    trigger(
-      'inOutAnimation',
-      [
-        transition(
-          ':enter',
-          [
-            style({ opacity: 0 }),
-            animate('200ms ease-out',
-              style({ opacity: 1 }))
-          ]
-        ),
-        transition(
-          ':leave',
-          [
-            style({ opacity: 1 }),
-            animate('200ms ease-in',
-              style({ opacity: 0 }))
-          ]
-        )
-      ]
-    ), trigger('slide', [
+    trigger('inOutAnimation', [
+      transition(':enter', [style({ opacity: 0 }), animate('200ms ease-out', style({ opacity: 1 }))]),
+      transition(':leave', [style({ opacity: 1 }), animate('200ms ease-in', style({ opacity: 0 }))])]),
+    trigger('slide', [
       state('left', style({ transform: 'translateX(-100%)' })),
       state('right', style({ transform: 'translateX(100%)' })),
       transition('* => *', animate(400))
@@ -44,11 +27,9 @@ export class AppComponent {
   }
 
   ngOnInit(): void {
-
   }
 
   closeMenu(event: any) {
-    debugger
     this.menuIsActive = false
   }
 
