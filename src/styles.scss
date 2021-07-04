@@ -1,22 +1,52 @@
 /* You can add global styles to this file, and also import other style files */
-:root{
+:root {
     --primary-color: #41908a;
     --caption-color: rgb(175, 173, 173);
+    --clicked-color: rgb(73, 71, 71);
 }
 
 /* Importing Bootstrap SCSS file. */
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
 
-
-.title{
+.title {
     font-weight: 500;
-    font-size: 20px;   
+    font-size: 20px;
 }
-.caption{
+.caption {
     color: var(--caption-color);
     font-weight: 400;
     font-size: 18px;
 }
-.pt-100{
+.pt-100 {
     padding: 100px 1.5em 0 1.5em;
 }
+
+.click-effect {
+    position: relative;
+    text-align: center;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  
+  .click-effect:after {
+    content: "";
+    background: var(--clicked-color);
+    display: block;
+    position: absolute;
+    padding-top: 100%;
+    padding-left: 100%;
+    margin-top: -100%;
+    opacity: 0;
+    transition: all 0.3s;
+    border-radius: 50%;
+  }
+  
+  .click-effect:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+  }

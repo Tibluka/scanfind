@@ -22,7 +22,7 @@ export class MenuComponent implements OnInit {
     }
   }
 
-  navigate(route: string){
+  navigate(route: string) {
     this.closeMenu.emit(true)
     this.router.navigate([`/${route}`])
   }

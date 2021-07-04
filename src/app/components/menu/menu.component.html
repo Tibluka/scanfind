@@ -1,8 +1,13 @@
 <div class="container mt-4" (clickOutside)="onClickedOutside($event)">
 
-    <div class="items d-flex align-items-center" (click)="navigate('search')">
+    <div class="mt-3 items d-flex align-items-center" (click)="navigate('')">
+        <i class="fas fa-home mr-2"></i>
+        <p class="caption mb-0">Home</p>
+    </div>
+    <div class="mt-3 items d-flex align-items-center" (click)="navigate('search')">
         <i class="fas fa-search mr-2"></i>
         <p class="caption mb-0">Find item</p>
     </div>
+  
 
 </div>
