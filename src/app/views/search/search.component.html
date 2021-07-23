@@ -7,9 +7,13 @@
         <p class="caption">The future is here</p>
     </div>
 
-    <div class="camera text-center">
-        <i class="mt-4 fas fa-camera fa-7x"></i>
+    <div *ngIf="!showWebcam" class="text-center">
+        <i class="mt-4 fas fa-camera fa-7x" (click)="showWebcam = !showWebcam"></i>
     </div>
+
+    <app-camera *ngIf="showWebcam" class="camera" [showWebcam]="showWebcam" (getPicture)="displayImageTaken($event)"></app-camera>
+    
+    <img *ngIf="shotIsTaken" src="{{base64}}" alt="" style="width: 327px;">
 
     <div class="result mt-4">
         <app-result-list></app-result-list>

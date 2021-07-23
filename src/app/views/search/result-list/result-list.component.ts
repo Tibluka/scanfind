@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ItemList } from 'src/app/models/ItemList';
 
 @Component({
   selector: 'app-result-list',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./result-list.component.scss']
 })
 export class ResultListComponent implements OnInit {
+
+  public results: Array<ItemList> = []
 
   constructor() { }
 

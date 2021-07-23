@@ -19,8 +19,9 @@ import { MenuService } from './services/menu.service';
 })
 export class AppComponent {
   title = 'scanfind';
-
+  showWebcam = false
   public menuIsActive: boolean = false
+  
 
   constructor(public menuService: MenuService) {
 
@@ -37,6 +38,7 @@ export class AppComponent {
   openMenu(event: any) {
     this.menuIsActive = event
   }
+
 
 
 
