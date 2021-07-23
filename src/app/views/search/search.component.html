@@ -8,11 +8,8 @@
     </div>
 
     <div *ngIf="!showWebcam" class="text-center">
-        <i class="mt-4 fas fa-camera fa-7x" (click)="showWebcam = !showWebcam"></i>
+        <i class="mt-4 fas fa-camera fa-7x" (click)="openCamera()"></i>
     </div>
-
-    <app-camera *ngIf="showWebcam" class="camera" [showWebcam]="showWebcam" (getPicture)="displayImageTaken($event)"></app-camera>
-    
     <img *ngIf="shotIsTaken" src="{{base64}}" alt="" style="width: 327px;">
 
     <div class="result mt-4">

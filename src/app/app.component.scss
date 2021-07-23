@@ -36,3 +36,10 @@ app-menu {
     right: 0;
     left: 0;
 }
+
+.camera {
+    overflow: none;
+    position: absolute;
+    z-index: 30;
+    top: 0;
+}

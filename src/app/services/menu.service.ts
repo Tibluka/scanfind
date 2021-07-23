@@ -7,6 +7,10 @@ export class MenuService {
 
   public active: boolean = false
 
+  get menuStatus() {
+    return this.active
+  }
+
   constructor() { }
 
   activate() {

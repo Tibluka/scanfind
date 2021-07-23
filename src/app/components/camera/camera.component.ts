@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 import { WebcamImage, WebcamInitError, WebcamUtil } from 'ngx-webcam';
 import { Subject, Observable } from 'rxjs';
+import { CameraService } from 'src/app/services/camera.service';
 
 @Component({
   selector: 'app-camera',
@@ -9,17 +10,27 @@ import { Subject, Observable } from 'rxjs';
 })
 export class CameraComponent implements OnInit {
   @Output() getPicture = new EventEmitter<WebcamImage>();
-  @Input() showWebcam: boolean = false
+  public showWebcam: boolean = false
+  @HostListener('window:resize', ['$event'])
 
+  public width: number = 0;
+  public height: number = 0;
+  public isCameraExist = true;
+  public errors: WebcamInitError[] = [];
 
-  isCameraExist = true;
-
-  errors: WebcamInitError[] = [];
+  onResize(event?: Event) {
+    const win = !!event ? (event.target as Window) : window;
+    this.width = win.innerWidth;
+    this.height = win.innerHeight;
+  }
 
   // webcam snapshot trigger
   private trigger: Subject<void> = new Subject<void>();
   private nextWebcam: Subject<boolean | string> = new Subject<boolean | string>();
-  constructor() { }
+  constructor(private cameraService: CameraService) {
+    this.onResize()
+    this.showWebcam = cameraService.cameraStatus
+  }
 
   ngOnInit(): void {
     WebcamUtil.getAvailableVideoInputs()

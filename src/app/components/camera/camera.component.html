@@ -1,9 +1,11 @@
 <div class="camera-background">
     <div *ngIf="isCameraExist; else noCameraExist">
         <div class="text-center">
-            <webcam [width]="300" [trigger]="triggerObservable" (imageCapture)="handleImage($event)" *ngIf="showWebcam"
-                [switchCamera]="nextWebcamObservable">
-            </webcam>
+            <div class="wrapper" (window:resize)="onResize($event)">
+                <webcam [width]="width" [height]="height" [trigger]="triggerObservable"
+                    (imageCapture)="handleImage($event)" *ngIf="showWebcam" [switchCamera]="nextWebcamObservable">
+                </webcam>
+            </div>
             <div class="photo-button">
                 <div class="circle"></div>
                 <div class="ring"></div>

@@ -5,10 +5,18 @@ import { Injectable } from '@angular/core';
 })
 export class CameraService {
 
+  public shotIsTaken: boolean = false
+  public base64: string = ''
+  private showWebcam: boolean = false
+
   get cameraStatus() {
-    return 
+    return this.showWebcam
   }
 
   constructor() { }
+
+  openCamera() {
+    this.showWebcam = true
+  }
 
 }

@@ -1,5 +1,7 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component } from '@angular/core';
+import { WebcamImage } from 'ngx-webcam';
+import { CameraService } from './services/camera.service';
 import { MenuService } from './services/menu.service';
 
 @Component({
@@ -18,13 +20,14 @@ import { MenuService } from './services/menu.service';
   ]
 })
 export class AppComponent {
-  title = 'scanfind';
-  showWebcam = false
+  public title: string = 'scanfind';
   public menuIsActive: boolean = false
-  
+  public showWebcam: boolean = false
 
-  constructor(public menuService: MenuService) {
-
+  constructor(public menuService: MenuService,
+    public cameraService: CameraService) {
+    this.showWebcam = cameraService.cameraStatus
+    this.menuIsActive = menuService.menuStatus
   }
 
   ngOnInit(): void {
@@ -34,12 +37,14 @@ export class AppComponent {
     this.menuIsActive = false
   }
 
-
   openMenu(event: any) {
     this.menuIsActive = event
   }
 
-
+  displayImageTaken(e: WebcamImage) {
+    this.cameraService.base64 = e.imageAsDataUrl.replace('"', '')
+    this.cameraService.shotIsTaken = true
+  }
 
 
 }

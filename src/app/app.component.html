@@ -1,6 +1,7 @@
 <app-header (activate)="openMenu($event)"></app-header>
 <app-menu [style.left]="menuIsActive ? '0' : '-260px'" [active]="menuIsActive" (closeMenu)="closeMenu($event)">
 </app-menu>
-  <router-outlet></router-outlet>
+<router-outlet></router-outlet>
+<app-camera *ngIf="cameraService.cameraStatus" class="camera" (getPicture)="displayImageTaken($event)"></app-camera>
 <app-footer></app-footer>
 <div class="blur" [@inOutAnimation] *ngIf="menuIsActive || showWebcam"></div>

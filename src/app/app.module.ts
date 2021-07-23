@@ -9,6 +9,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MenuComponent } from './components/menu/menu.component';
 import { ClickOutsideModule } from 'ng-click-outside';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CameraModule } from './components/camera/camera.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     AppRoutingModule,
     NgbModule,
-    ClickOutsideModule
+    ClickOutsideModule,
+    CameraModule
   ],
   providers: [],
   bootstrap: [AppComponent]
