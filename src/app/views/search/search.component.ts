@@ -13,22 +13,15 @@ export class SearchComponent implements OnInit {
   public base64: string = ''
   public showWebcam
 
-  constructor(private cameraService: CameraService) {
+  constructor(public cameraService: CameraService) {
     this.showWebcam = cameraService.cameraStatus
   }
 
   ngOnInit(): void {
   }
 
-  displayImageTaken(e: WebcamImage) {
-    this.base64 = e.imageAsDataUrl.replace('"', '')
-    this.shotIsTaken = true
-  }
-
   openCamera() {
-    this.cameraService.openCamera()
-    console.log(this.cameraService.cameraStatus);
-    
+    this.cameraService.openCamera()    
   }
 
 }

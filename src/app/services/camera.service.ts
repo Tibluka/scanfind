@@ -19,4 +19,8 @@ export class CameraService {
     this.showWebcam = true
   }
 
+  closeCamera(){
+    this.showWebcam = false
+  }
+
 }

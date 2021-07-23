@@ -4,6 +4,7 @@ import { SearchComponent } from './search.component';
 import { RouterModule } from '@angular/router';
 import { ResultListComponent } from './result-list/result-list.component'
 import { CameraModule } from 'src/app/components/camera/camera.module';
+import { ItemListModule } from 'src/app/components/item-list/item-list.module';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { CameraModule } from 'src/app/components/camera/camera.module';
   imports: [
     CommonModule,
     CameraModule,
+    ItemListModule,
     RouterModule.forChild([
       {
         path: '',

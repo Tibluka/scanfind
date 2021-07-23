@@ -1,19 +1,18 @@
 <div class="container pt-100">
-
     <div class="header">
         <h4>
             User your camera to look for what you need!
         </h4>
         <p class="caption">The future is here</p>
     </div>
-
-    <div *ngIf="!showWebcam" class="text-center">
+    <div *ngIf="!cameraService.shotIsTaken" class="text-center">
         <i class="mt-4 fas fa-camera fa-7x" (click)="openCamera()"></i>
     </div>
-    <img *ngIf="shotIsTaken" src="{{base64}}" alt="" style="width: 327px;">
+
+    <img class="image-taken" *ngIf="cameraService.shotIsTaken" src="{{cameraService.base64}}">
 
     <div class="result mt-4">
-        <app-result-list></app-result-list>
+        <app-result-list *ngIf="cameraService.shotIsTaken"></app-result-list>
     </div>
 
 </div>
